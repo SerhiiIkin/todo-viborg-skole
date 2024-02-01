@@ -1,0 +1,157 @@
+@import "reset.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 10px;
+    color: orange;
+}
+
+.todo__btn {
+    outline: 1px solid rgb(68, 136, 78);
+    padding: 5px 10px;
+    border-radius: 5px;
+    &:hover {
+        transition: all 0.5s ease 0s;
+        background: #2d3466;
+        color: wheat;
+    }
+}
+
+.listItem {
+    cursor: pointer;
+    margin: 10px 0;
+    padding-right: 20px;
+    --animation-duration: 4s;
+
+    &:hover {
+        animation: flash var(--animation-duration) infinite;
+    }
+}
+
+.listItem.done {
+    font-weight: bold;
+    color: green;
+    text-decoration: line-through;
+}
+
+.item__remove {
+    &:hover {
+        color: red;
+    }
+}
+
+.data-writte-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    input[type="checkbox"] {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid black;
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+        &:checked {
+            appearance: auto;
+            clip-path: circle(50% at 50% 50%);
+            background-color: #2b275c;
+        }
+    }
+}
+
+.todo__input {
+    outline: 1px solid grey;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.items__container {
+    display: flex;
+    align-items: center;
+    input {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        vertical-align: middle;
+        border: 1px solid black;
+        appearance: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+        &:checked {
+            appearance: auto;
+            clip-path: circle(50% at 50% 50%);
+            background-color: #2b275c;
+        }
+    }
+}
+
+.accordion__content {
+    display: grid;
+    gap: 10px;
+
+    & details {
+        background-color: rgb(149, 138, 138);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    & details > p {
+        background-color: wheat;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    summary {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+
+        & span {
+            position: relative;
+            width: 10px;
+
+            &::after,
+            &::before {
+                content: "";
+                background-color: black;
+                width: 100%;
+                height: 1px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+            }
+
+            &::after {
+                rotate: 90deg;
+                transition: rotate 0.5s ease 0s;
+            }
+
+            &.active {
+                &::after {
+                    rotate: 0deg;
+                }
+            }
+        }
+    }
+
+    summary:hover {
+        cursor: pointer;
+    }
+}
