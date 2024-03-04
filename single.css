@@ -1,0 +1,19 @@
+.flex {
+    display: flex;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.justify-self-stretch {
+    align-self: stretch;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
